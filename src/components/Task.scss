@@ -10,71 +10,22 @@
   margin-bottom: 10px;
 }
 
-.Task-content {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-size: medium
+.Task-text {
+  width: 100%;
+  height: 100%;
+  background-color: variables.$primary-color;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-size: large;
 }
 
-.Task-checkbox-label {
-    display: block;
-    position: relative;
-    padding-left: 35px;
-    margin-bottom: 12px;
-    cursor: pointer;
-    font-size: 22px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+.Task-text:hover {
+  background-color: darken(variables.$primary-color,20%);
 }
 
-.Task-checkbox {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
-}
-
-.Task-checkbox-span {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 25px;
-    width: 25px;
-    background-color: #eee;
-}
-
-.Task-checkbox-label:hover input ~ .Task-checkbox-span {
-    background-color: #ccc;
-}
-
-.Task-checkbox-label input:checked ~ .Task-checkbox-span {
-    background-color: red;
-}
-
-.Task-checkbox-span:after {
-    content: "";
-    position: absolute;
-    display: none;
-}
-
-.Task-checkbox-label input:checked ~ .Task-checkbox-span:after {
-    display: block;
-}
-
-.Task-checkbox-label .Task-checkbox-span:after {
-  left: 9px;
-  top: 5px;
-  width: 5px;
-  height: 10px;
-  border: solid white;
-  border-width: 0 3px 3px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
+.Task-text:checked {
+  text-decoration: line-through;
 }
 
 .Task-delete-button {
