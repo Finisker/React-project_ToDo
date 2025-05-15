@@ -24,8 +24,12 @@
   background-color: darken(variables.$primary-color,20%);
 }
 
-.Task-text:checked {
+.checked {
   text-decoration: line-through;
+}
+
+.hiden {
+  display: none;
 }
 
 .Task-delete-button {
