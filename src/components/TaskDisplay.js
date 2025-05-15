@@ -2,13 +2,12 @@ import React from 'react';
 import Task from './Task';
 import './TaskDisplay.scss';
 
-function TaskDisplay() {
+function TaskDisplay(props) {
   return (
     <div className="TaskDisplay">
-      <Task />
-      <Task />
-      <Task />
-      <Task />
+      {[...Array(props.tasksNumber)].map((_, index) => (
+        <Task key={index} />
+      ))}
     </div>
   );
 }
