@@ -3,13 +3,16 @@ import './Task.scss';
 
 function Task () {
   
-  const [checked, setChecked] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
+  const [isVisable, setIsVisable] = useState(true);
   
   return (
-    <div className="Task">
-      <button className={`Task-text ${checked? ' checked ':''}`} onClick={() => setChecked(!checked)}>Learn React</button>
-      <button className="Task-delete-button">X</button>
-    </div>
+    <>
+    {isVisable  && <div className="Task">
+      <button className={`Task-text ${isChecked? ' isChecked ':''}`} onClick={() => setIsChecked(!isChecked)}>Learn React</button>
+      <button className="Task-delete-button" onClick={() => setIsVisable(!isVisable)}>X</button>
+    </div>}
+    </>
   )
 }
 
