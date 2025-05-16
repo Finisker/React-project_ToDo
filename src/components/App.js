@@ -5,11 +5,11 @@ import TaskDisplay from './TaskDisplay';
 
 function App() {
 
-  const [tasks, setTasks] = useState(0);
+  const [tasksNumber, setTasksNumber] = useState(0);
 
-  // function handleTaskAdd(){
-
-  // };
+  function handleTaskSubmit(){
+    setTasksNumber(tasksNumber + 1);
+  };
 
   return (
     <div className="App">
@@ -17,8 +17,8 @@ function App() {
         <h1>What do you want <br /> ToDo today?</h1>
       </header>
       <main>
-        <NewTaskBar/>
-        <TaskDisplay tasksNumber={tasks} />
+        <NewTaskBar handleSubmit={handleTaskSubmit}/>
+        <TaskDisplay tasksNumber={tasksNumber} />
       </main>
     </div>
   );

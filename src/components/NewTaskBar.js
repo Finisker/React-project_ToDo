@@ -4,12 +4,17 @@ import './NewTaskBar.scss';
 export default function NewTaskBar(props) {
 
   const [value, setValue] = useState('');
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    props.handleSubmit();
+  }
   
   return (
     <div className="NewTaskBar">
       <form
       className="NewTaskBar-form"
-      onSubmit={() => props.handleSubmit}
+      onSubmit={(e) => handleSubmit(e)}
       >
         <input 
           type="text"
@@ -21,7 +26,7 @@ export default function NewTaskBar(props) {
         <button 
         type="submit"
         className="NewTaskBar-button"
-        >Add Task</button>
+        >Add</button>
       </form>
     </div>
   );
