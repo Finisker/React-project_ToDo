@@ -5,10 +5,11 @@ import TaskDisplay from './TaskDisplay';
 
 function App() {
 
-  const [tasksNumber, setTasksNumber] = useState(0);
+  const [tasks,setTasks] = useState([]);
 
-  function handleTaskSubmit(){
-    setTasksNumber(tasksNumber + 1);
+  function handleTaskSubmit(value){
+    setTasks([...tasks,value]);
+    console.log("Tasks Array:", [...tasks,value]);
   };
 
   return (
@@ -18,7 +19,7 @@ function App() {
       </header>
       <main>
         <NewTaskBar handleSubmit={handleTaskSubmit}/>
-        <TaskDisplay tasksNumber={tasksNumber} />
+        <TaskDisplay tasks={tasks} />
       </main>
     </div>
   );

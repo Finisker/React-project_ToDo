@@ -5,8 +5,8 @@ import './TaskDisplay.scss';
 function TaskDisplay(props) {
   return (
     <div className="TaskDisplay">
-      {[...Array(props.tasksNumber)].map((_, index) => (
-        <Task key={index} />
+      {props.tasks.map((task, index) => (
+        <Task key={index} task={task} />
       ))}
     </div>
   );
