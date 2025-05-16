@@ -1,16 +1,15 @@
-import React from 'react';
+import {useState} from 'react';
 import './App.scss';
 import NewTaskBar from './NewTaskBar';
 import TaskDisplay from './TaskDisplay';
 
 function App() {
 
-  const [tasksNumber, setTasksNumber] = React.useState(0);
+  const [tasks, setTasks] = useState(0);
 
-  const handleTaskAdd = () => {
-    setTasksNumber(tasksNumber + 1);
-    window.alert('Task added, number of tasks: ' + tasksNumber);
-  };
+  // function handleTaskAdd(){
+
+  // };
 
   return (
     <div className="App">
@@ -18,8 +17,8 @@ function App() {
         <h1>What do you want <br /> ToDo today?</h1>
       </header>
       <main>
-        <NewTaskBar onSubmit={handleTaskAdd}/>
-        <TaskDisplay tasksNumber={tasksNumber} />
+        <NewTaskBar/>
+        <TaskDisplay tasksNumber={tasks} />
       </main>
     </div>
   );

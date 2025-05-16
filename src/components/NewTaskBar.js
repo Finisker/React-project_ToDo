@@ -1,15 +1,28 @@
+import { useState } from 'react';
 import './NewTaskBar.scss';
 
-function NewTaskBar({ onSubmit }) {
+export default function NewTaskBar(props) {
 
+  const [value, setValue] = useState('');
+  
   return (
     <div className="NewTaskBar">
-      <form className="NewTaskBar-form">
-        <input type="text" className="NewTaskBar-input" placeholder="What do you want to do?" />
-        <button type="submit" className="NewTaskBar-button" onClick={() => onSubmit()}>Add</button>
+      <form
+      className="NewTaskBar-form"
+      onSubmit={() => props.handleSubmit}
+      >
+        <input 
+          type="text"
+          className="NewTaskBar-input"
+          placeholder="What do you want to do?"
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+        />
+        <button 
+        type="submit"
+        className="NewTaskBar-button"
+        >Add Task</button>
       </form>
     </div>
   );
 }
-
-export default NewTaskBar;
