@@ -6,7 +6,7 @@ function TaskDisplay(props) {
   return (
     <div className="TaskDisplay">
       {props.tasks.map((task, index) => (
-        <Task key={index} task={task} />
+        <Task key={index} task={task} deleteTask={props.deleteTask} index={index}/>
       ))}
     </div>
   );

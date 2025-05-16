@@ -12,6 +12,13 @@ function App() {
     console.log("Tasks Array:", [...tasks,value]);
   };
 
+  function deleteTask(index){
+    console.log("Deleting task at index:", index);
+    const newTasks = tasks.filter((tasks, i) => i !== index);
+    setTasks(newTasks);
+    console.log("Tasks Array after deletion:", newTasks);
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -19,7 +26,7 @@ function App() {
       </header>
       <main>
         <NewTaskBar handleSubmit={handleTaskSubmit}/>
-        <TaskDisplay tasks={tasks} />
+        <TaskDisplay tasks={tasks} deleteTask={deleteTask} />
       </main>
     </div>
   );
