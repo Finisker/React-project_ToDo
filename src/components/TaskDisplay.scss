@@ -5,10 +5,13 @@
     flex-direction: column;
     height: 80%;
     width: 100%;
-    gap: 10px;
     padding-top: 5px;
     border-radius: 10px;
     background-color: variables.$primary-color;
     margin: 2vh 0 0 0;
     overflow: auto;
+}
+
+.TaskDisplay::-webkit-scrollbar { 
+    display: none;
 }

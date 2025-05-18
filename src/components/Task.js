@@ -8,7 +8,9 @@ function Task (props) {
   return (
     <>
       <div className="Task">
-        <button className={`Task-text ${isChecked? ' isChecked ':''}`} onClick={() => setIsChecked(!isChecked)}>{props.task}</button>
+        <label className="Task-label">
+          <button className={`Task-text ${isChecked? ' isChecked ':''}`} onClick={() => setIsChecked(!isChecked)}>{props.task}</button>
+        </label>
         <button className="Task-delete-button" onClick={() => props.deleteTask(props.index)}>X</button>
       </div>
     </>
