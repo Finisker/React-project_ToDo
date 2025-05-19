@@ -4,28 +4,12 @@ import './NewTaskBar.scss';
 export default function NewTaskBar(props) {
 
   const [value, setValue] = useState('');
-
-  function handleSubmit(e) {
-    e.preventDefault();
-
-    if(!value){
-      return;
-    }
-
-    const newTask = {
-      "body": value
-    };
-
-    fetch('http://localhost:3001/tasks',{
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(newTask)
-    });
-    setValue('');
-  }
   
+  function handleSubmit(e) {
+    setValue('');
+    props.handleSubmit(e, value);
+  }
+
   return (
     <div className="NewTaskBar">
       <form

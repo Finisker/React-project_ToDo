@@ -1,16 +1,52 @@
-import {useState} from 'react';
+import { useState, useEffect } from 'react';
 import './App.scss';
 import NewTaskBar from './NewTaskBar';
 import TaskDisplay from './TaskDisplay';
 
 function App() {
 
-  const [tasks,setTasks] = useState([]);
+  const [tasks, setTasks] = useState(null)
 
-  function handleTaskSubmit(value){
-    setTasks([...tasks,value]);
-    console.log("Tasks Array:", [...tasks,value]);
-  };
+  useEffect(() => {
+    fetch('http://localhost:3001/tasks')
+      .then((res) => res.json())
+      .then((data) => setTasks(data));
+  }, []);
+
+  function handleTaskDelete (id){
+    fetch('http://localhost:3001/tasks/' + id, {
+      method: 'DELETE'
+    });
+
+    const newTasks = tasks.filter(item => item.id !== id);
+    setTasks(newTasks);
+  }
+
+  function handleSubmit(e, value) {
+    e.preventDefault();
+
+    if(!value){
+      return;
+    }
+
+    const newTask = {
+      "body": value
+    };
+
+    fetch('http://localhost:3001/tasks',{
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newTask)
+    })
+    .then(res => res.json())
+    .then(data => ({
+      "body": value,
+      "id": data.id
+    }))
+    .then(newTask => setTasks([...tasks, newTask]))
+  }
 
   return (
     <div className="App">
@@ -18,8 +54,8 @@ function App() {
         <h1>What do you want <br /> ToDo today?</h1>
       </header>
       <main>
-        <NewTaskBar handleSubmit={handleTaskSubmit}/>
-        <TaskDisplay />
+        <NewTaskBar handleSubmit={handleSubmit}/>
+        <TaskDisplay tasks={tasks} handleTaskDelete={handleTaskDelete}/>
       </main>
     </div>
   );
