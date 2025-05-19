@@ -1,3 +1,8 @@
+# ToDo web application
+
+This project was created so I can learn basics of React.\
+In the project I used functional components, hooks, conditional rendering, props and callbacks.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
