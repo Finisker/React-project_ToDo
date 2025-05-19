@@ -5,11 +5,19 @@ import TaskDisplay from './TaskDisplay';
 
 function App() {
 
-  const [tasksNumber, setTasksNumber] = useState(0);
+  const [tasks,setTasks] = useState([]);
 
-  function handleTaskSubmit(){
-    setTasksNumber(tasksNumber + 1);
+  function handleTaskSubmit(value){
+    setTasks([...tasks,value]);
+    console.log("Tasks Array:", [...tasks,value]);
   };
+
+  function deleteTask(index){
+    console.log("Deleting task at index:", index);
+    const newTasks = tasks.filter((tasks, i) => i !== index);
+    setTasks(newTasks);
+    console.log("Tasks Array after deletion:", newTasks);
+  }
 
   return (
     <div className="App">
@@ -18,7 +26,7 @@ function App() {
       </header>
       <main>
         <NewTaskBar handleSubmit={handleTaskSubmit}/>
-        <TaskDisplay tasksNumber={tasksNumber} />
+        <TaskDisplay tasks={tasks} deleteTask={deleteTask} />
       </main>
     </div>
   );

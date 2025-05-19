@@ -7,7 +7,9 @@ export default function NewTaskBar(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    props.handleSubmit();
+    console.log("Adding task from taskBar: ", value);
+    props.handleSubmit(value);
+    setValue('');
   }
   
   return (
