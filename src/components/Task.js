@@ -1,9 +1,16 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './Task.scss';
 
 function Task (props) {
   
   const [isChecked, setIsChecked] = useState(false);
+  const [value, setValue] = useState('');
+
+  // useEffect(() => {
+  //   fetch('http://localhost:3001/tasks/${props.index}')
+  //     .then((res) => res.json())
+  //     .then((data) => setValue(data.body))
+  // }, []);
   
   return (
     <>
