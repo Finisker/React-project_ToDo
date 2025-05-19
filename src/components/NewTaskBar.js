@@ -7,8 +7,22 @@ export default function NewTaskBar(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log("Adding task from taskBar: ", value);
-    props.handleSubmit(value);
+
+    if(!value){
+      return;
+    }
+
+    const newTask = {
+      "body": value
+    };
+
+    fetch('http://localhost:3001/tasks',{
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newTask)
+    });
     setValue('');
   }
   
