@@ -19,7 +19,7 @@
 .env.production.local
 
 # DB
-/backend_mockup/db.json
+backend_mockup/db.json
 
 npm-debug.log*
 yarn-debug.log*
