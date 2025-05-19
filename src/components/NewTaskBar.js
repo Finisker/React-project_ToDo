@@ -6,8 +6,14 @@ export default function NewTaskBar(props) {
   const [value, setValue] = useState('');
   
   function handleSubmit(e) {
+    e.preventDefault();
+
+    if(!value){
+      return;
+    }
+
+    props.handleSubmit(value);
     setValue('');
-    props.handleSubmit(e, value);
   }
 
   return (

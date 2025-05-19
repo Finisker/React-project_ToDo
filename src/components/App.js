@@ -22,12 +22,7 @@ function App() {
     setTasks(newTasks);
   }
 
-  function handleSubmit(e, value) {
-    e.preventDefault();
-
-    if(!value){
-      return;
-    }
+  function handleSubmit(value) {
 
     const newTask = {
       "body": value
