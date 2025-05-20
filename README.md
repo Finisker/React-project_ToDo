@@ -9,6 +9,11 @@ I did that to learn about REST API and `useEffect` hooks.
 `npm run json-server` is available to start a JSON server.\
 You can learn more about the script below.
 
+# How does it look?
+
+![image](https://github.com/user-attachments/assets/e08ee65f-81ad-4219-8e81-4a184ea8b5ce)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -52,7 +57,7 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 
 ### `npm run json-server`
 
-Start json-server to mockup server side of the application.\
+Start json-server to mock the server side of the application.
 Open [http://localhost:3001](http://localhost:3001) to view it in your browser.
 
 For the server to work properly u need json-server installed globally or in your directory.\
