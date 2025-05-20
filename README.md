@@ -1,14 +1,13 @@
 # ToDo web application
 
-This project was created so I can learn basics of React.\
-In the project I used functional components, hooks, conditional rendering, props and callbacks.
+This project was created so I can learn the basics of React.\
+I used functional components, hooks, conditional rendering, props, and callbacks in the project.
 
-I decided to expand the project and use `json-server` to mockup database.\
+I expanded the project and used `json-server` to mock up a database.\
 I did that to learn about REST API and `useEffect` hooks.
 
-`npm run json-server` is available to start a json server.\
+`npm run json-server` is available to start a JSON server.\
 You can learn more about the script below.
-
 
 # Getting Started with Create React App
 
