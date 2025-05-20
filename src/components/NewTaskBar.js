@@ -4,14 +4,18 @@ import './NewTaskBar.scss';
 export default function NewTaskBar(props) {
 
   const [value, setValue] = useState('');
-
+  
   function handleSubmit(e) {
     e.preventDefault();
-    console.log("Adding task from taskBar: ", value);
+
+    if(!value){
+      return;
+    }
+
     props.handleSubmit(value);
     setValue('');
   }
-  
+
   return (
     <div className="NewTaskBar">
       <form

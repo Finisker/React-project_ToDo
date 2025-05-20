@@ -3,6 +3,13 @@
 This project was created so I can learn basics of React.\
 In the project I used functional components, hooks, conditional rendering, props and callbacks.
 
+I decided to expand the project and use `json-server` to mockup database.\
+I did that to learn about REST API and `useEffect` hooks.
+
+`npm run json-server` is available to start a json server.\
+You can learn more about the script below.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -43,3 +50,14 @@ If you aren't satisfied with the build tool and configuration choices, you can `
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+### `npm run json-server`
+
+Start json-server to mockup server side of the application.\
+Open [http://localhost:3001](http://localhost:3001) to view it in your browser.
+
+For the server to work properly u need json-server installed globally or in your directory.\
+To do that run below commands in terminal:\
+`npm install -g json-server` for globall instalation\
+`npm install json-server --save-dev` for local
+
