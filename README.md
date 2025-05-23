@@ -11,7 +11,8 @@ You can learn more about the script below.
 
 # How does it look?
 
-![image](https://github.com/user-attachments/assets/e08ee65f-81ad-4219-8e81-4a184ea8b5ce)
+Try for yourself!
+`https://finisker.github.io/React-project_ToDo/`
 
 
 # Getting Started with Create React App
