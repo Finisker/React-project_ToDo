@@ -12,7 +12,7 @@ You can learn more about the script below.
 # How does it look?
 
 Try for yourself!
-`https://finisker.github.io/React-project_ToDo/`
+[Github Pages](https://finisker.github.io/React-project_ToDo/)
 
 
 # Getting Started with Create React App
