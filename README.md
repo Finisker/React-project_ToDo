@@ -11,7 +11,7 @@ You can learn more about the script below.
 
 # How does it look?
 
-Try for yourself!
+Try for yourself!\
 [Github Pages](https://finisker.github.io/React-project_ToDo/)
 
 
