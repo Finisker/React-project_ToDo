@@ -54,9 +54,3 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 
 Start json-server to mock the server side of the application.
 Open [http://localhost:3001](http://localhost:3001) to view it in your browser.
-
-For the server to work properly u need json-server installed globally or in your directory.\
-To do that run below commands in terminal:\
-`npm install -g json-server` for globall instalation\
-`npm install json-server --save-dev` for local
-
