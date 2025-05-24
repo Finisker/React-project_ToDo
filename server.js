@@ -39,6 +39,28 @@ app.post('/api/data', (req, res) => {
   });
 });
 
+app.put('/api/data/:id', (req, res) => {
+  const idToUpdate = parseInt(req.params.id, 10);
+
+  fs.readFile(dbPath, 'utf8', (err, data) => {
+    if (err) return res.status(500).json({ error: 'Read error' });
+
+    let items = JSON.parse(data);
+    const index = items.findIndex(item => item.id === idToUpdate);
+
+    if (index === -1) return res.status(404).json({ error: 'Item not found' });
+
+    // Replace the entire object but keep the same id
+    items[index] = { id: idToUpdate, ...req.body };
+
+    fs.writeFile(dbPath, JSON.stringify(items, null, 2), (writeErr) => {
+      if (writeErr) return res.status(500).json({ error: 'Write error' });
+
+      res.json(items[index]);
+    });
+  });
+});
+
 app.delete('/api/data/:id', (req, res) => {
   const idToDelete = parseInt(req.params.id, 10);
 
@@ -68,6 +90,27 @@ app.delete('/api/data/:id', (req, res) => {
       }
 
       res.json({ message: `Item with id ${idToDelete} deleted.` });
+    });
+  });
+});
+
+app.patch('/api/data/:id', (req, res) => {
+  const id = parseInt(req.params.id, 10);
+
+  fs.readFile(dbPath, 'utf8', (err, data) => {
+    if (err) return res.status(500).json({ error: 'Read error' });
+
+    let items = JSON.parse(data);
+    const index = items.findIndex(item => item.id === id);
+
+    if (index === -1) return res.status(404).json({ error: 'Item not found' });
+
+    // Only update the fields provided
+    items[index] = { ...items[index], ...req.body };
+
+    fs.writeFile(dbPath, JSON.stringify(items, null, 2), (writeErr) => {
+      if (writeErr) return res.status(500).json({ error: 'Write error' });
+      res.json(items[index]);
     });
   });
 });
