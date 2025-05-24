@@ -23,11 +23,51 @@ app.post('/api/data', (req, res) => {
     if (err) return res.status(500).json({ error: 'Failed to read file' });
 
     let json = JSON.parse(data);
-    json.push(req.body);
+
+    // Find max existing id (or 0 if empty)
+    let maxId = json.reduce((max, item) => (item.id > max ? item.id : max), 0);
+
+    // Create new item with new unique id
+    const newItem = { id: maxId + 1, ...req.body };
+
+    json.push(newItem);
 
     fs.writeFile(dbPath, JSON.stringify(json, null, 2), (err) => {
       if (err) return res.status(500).json({ error: 'Failed to write file' });
-      res.status(201).json(req.body);
+      res.status(201).json(newItem);
+    });
+  });
+});
+
+app.delete('/api/data/:id', (req, res) => {
+  const idToDelete = parseInt(req.params.id, 10);
+
+  fs.readFile(dbPath, 'utf8', (err, data) => {
+    if (err) {
+      console.error('Read error:', err);
+      return res.status(500).json({ error: 'Failed to read file' });
+    }
+
+    let items;
+    try {
+      items = JSON.parse(data);
+    } catch (parseError) {
+      return res.status(500).json({ error: 'Failed to parse JSON' });
+    }
+
+    const filteredItems = items.filter(item => item.id !== idToDelete);
+
+    if (items.length === filteredItems.length) {
+      return res.status(404).json({ error: 'Item not found' });
+    }
+
+    fs.writeFile(dbPath, JSON.stringify(filteredItems, null, 2), (writeErr) => {
+      if (writeErr) {
+        console.error('Write error:', writeErr);
+        return res.status(500).json({ error: 'Failed to write file' });
+      }
+
+      res.json({ message: `Item with id ${idToDelete} deleted.` });
     });
   });
 });

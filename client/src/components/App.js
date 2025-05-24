@@ -3,18 +3,20 @@ import './App.scss';
 import NewTaskBar from './NewTaskBar';
 import TaskDisplay from './TaskDisplay';
 
+const dataPath = '/api/data'
+
 function App() {
 
   const [tasks, setTasks] = useState(null)
 
   useEffect(() => {
-    fetch('http://localhost:3001/tasks')
+    fetch(dataPath)
       .then((res) => res.json())
       .then((data) => setTasks(data));
   }, []);
 
   function handleTaskDelete (id){
-    fetch('http://localhost:3001/tasks/' + id, {
+    fetch(dataPath + '/' + id, {
       method: 'DELETE'
     });
 
@@ -28,7 +30,7 @@ function App() {
       "body": value
     };
 
-    fetch('http://localhost:3001/tasks',{
+    fetch(dataPath,{
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
