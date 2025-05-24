@@ -9,12 +9,6 @@ I did that to learn about REST API and `useEffect` hooks.
 `npm run json-server` is available to start a JSON server.\
 You can learn more about the script below.
 
-# How does it look?
-
-Try for yourself!\
-[Github Pages](https://finisker.github.io/React-project_ToDo/)
-
-
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
